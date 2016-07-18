@@ -1,0 +1,10 @@
+
+
+<%= simple_form_for([:admin, @candidate]) do |f| %>
+	I wanna vote for 
+  <%= f.association :position, label_method: :name, value_method: :id %>
+  <%= f.input :first_name%>
+  <%= f.input :last_name%>
+  <%= f.input :slogan%>
+  <%= f.submit %>
+<% end %>

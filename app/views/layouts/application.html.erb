@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Votekapa</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="padding:30px;">
+
+
+<nav class="nav">
+<h6 class="nav-item nohover"></h6>
+<a class="nav-item active"  href="/">Home</a>
+
+<%= link_to "Candidates", admin_candidates_path,{ :class=>" nav-item"} %>
+<%= link_to "Positions", admin_positions_path,{ :class=>" nav-item"} %>
+  <a class="nav-item" href="/voting/votes">Vote now</a>
+  <%if user_signed_in?%>
+
+<%= link_to "Logout", destroy_user_session_path,{ method: :delete,:class=>" nav-item right"} %>
+  	<div class="nav-item nohover right"> Hello <%= current_user.email%></div>
+    <a href="/profile" class="nav-item right">My Profile</a>
+  <%else%>
+  <%= link_to "Log-in", new_user_session_path, {:class =>"nav-item right"}%>
+    <%= link_to "Register", user_registration_path, {:class =>"nav-item right"}%>
+
+  <%end%>
+</nav>
+
+
+<%= yield %>
+
+</body>
+</html>

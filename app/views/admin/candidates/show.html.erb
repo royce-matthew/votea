@@ -1,0 +1,13 @@
+
+<h1 style="margin-bottom:3px;"><%= @candidate.full_name%> 
+
+<%=link_to "Edit", edit_admin_candidate_path(@candidate.id), {:style=>"font-size:18px; text-decoration:none; color:rgba(0,0,0,0.5)"}%>
+
+<%=link_to "OBOSEN", admin_candidate_path(@candidate.id), {:style=>"font-size:18px; text-decoration:none; color:rgba(200,0,0,0.5)", method: :delete}%></h1>
+<h3 style="margin-top:3px; color:#004e7e"><%= @candidate.position.name %></h3>
+<p>
+<%= @candidate.slogan%>
+</p>
+
+<hr>
+<%= link_to "Back to Candidates", admin_candidates_path %>

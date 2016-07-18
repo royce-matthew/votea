@@ -1,0 +1,13 @@
+<h4>Howdy <%=current_user.email%></h4>
+You Voted for<br>
+
+<ul>
+<%current_user.votes.each do |v|%>
+<li><%="#{v.candidate.position.name}: #{v.candidate.full_name}"%>
+
+<p style="">Comments: <%=v.comments%>
+</p>
+
+</li>
+<%end%>
+</ul>

@@ -1,0 +1,20 @@
+<h4>Displaying All Candidates Grouped By Positions </h4>
+
+<%=link_to "+ new Candidate", new_admin_candidate_path%>
+<div class="container"> 
+<% @positions.each do |p| %>
+<div style="display:inline-block; border:solid 1px; padding:40px; bottom:0; width:140px; margin:20px;">
+
+  <h5> <%= p.name %></h5>
+<ul  >
+  <% p.candidates.each do |c|%>
+
+    <li><%=link_to c.full_name, admin_candidate_path(c.id)%></li>
+
+  <% end %>
+  
+    
+  </ul>
+</div>
+<% end %>
+</div>

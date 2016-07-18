@@ -1,0 +1,14 @@
+<h4>Positions from the Vote-a-Sutra </h4>
+
+<%=link_to "+ new Position", new_admin_position_path%>
+<div class="container"> 
+<% @positions.each do |p| %>
+<div style="">
+
+  <a href="#"> <%= link_to p.name, admin_position_path(p.id) %></a>
+  
+    
+  </ul>
+</div>
+<% end %>
+</div>

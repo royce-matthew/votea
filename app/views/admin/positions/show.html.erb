@@ -1,0 +1,10 @@
+
+<h1 style="margin-bottom:3px;"><%= @position.name%> 
+<%=link_to "Edit", edit_admin_position_path(@position.id), {:style=>"font-size:18px; text-decoration:none; color:rgba(0,0,0,0.5)"}%>
+
+<%=link_to "OBOSEN", admin_position_path(@position.id), {:style=>"font-size:18px; text-decoration:none; color:rgba(200,0,0,0.5)", method: :delete}%></h1>
+<%@position.candidates.each do |c|%>
+
+    <li><%=link_to c.full_name, admin_candidate_path(c.id)%></li>
+<%end%>
+<%= link_to "Back to Positions", admin_positions_path %>

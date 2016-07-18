@@ -1,0 +1,37 @@
+<h1>Votes</h1>
+<!--
+<%= link_to("New Vote", new_voting_vote_path) %>
+
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+-->
+<br>
+      <td>Hello <%= current_user.email %></td>
+      <br>
+      <br>
+<ul>
+      <%@positions.each do |p|%>
+    <li>        has user already voted for <%=p.name%>?<br>
+    <%voted_for = false%>
+   
+          <% p.candidates.each do |c|%>
+              <%c.votes.each do |v|%>
+                <%if v.user_id == current_user.id%>
+                <%voted_for = true%>
+                  <% end %>
+              <%end%>
+          <% end %>
+
+          </ol>
+          <%if !voted_for%>
+           <%=link_to "Vote for a #{p.name}", "/voting/new/#{p.id}" %>
+           <%else%>
+           You have already Voted for a <%= p.name%>
+          <%end%>
+          
+           </li>
+      <%end%>
+      </ul>
+  <hr>
+  <br>
+
+   

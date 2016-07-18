@@ -1,0 +1,17 @@
+<center>
+<h1>Vote-A-Sutra</h1>
+
+<%@positions.each do |p|%>
+<div style="display:inline-block;  padding:20px">
+<h4><%=p.name%></h4>
+	<table style="width:300px;">
+	<thead><td>Name</td><td>Slogan</td><td>Votes</td></thead>
+	<%p.candidates.each do |c|%>
+
+		<tr><td><%=c.full_name%></td><td ><%=c.slogan%></td><td><%=c.votes.count%></td></tr>
+	<%end%>
+	</table>
+</div>
+	
+<%end%>
+</center>
